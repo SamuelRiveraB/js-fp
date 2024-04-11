@@ -14,7 +14,7 @@ a(3, 4); // This always return the same, referencial transparency is that we cou
 
 // Functional programming aims to minimize side effects
 
-// Idempotence always the same returns
+// Idempotence: always the same returns
 function notGood(num) {
   return Math.random(num);
 }
@@ -31,3 +31,38 @@ for (let i = 0; i < 10; i++) {
 
 [1, 2, 3].forEach((item) => console.log(item));
 // JQuery is imperative, React is declarative
+
+// Immutability: not changing the state, making copies instead
+
+const obj = { name: "Andrei" };
+function clone(oj) {
+  return { ...obj };
+}
+
+function updateName(obj) {
+  const obj2 = clone(obj);
+  obj2.name = "Nana";
+  return obj2;
+}
+
+const updatedObj = updateName(obj);
+console.log(obj, updatedObj);
+
+// HOF
+const hof = (fn) => fn(5);
+hof(function a(x) {
+  return x;
+});
+
+// Closure
+const closure = function () {
+  let count = 0;
+  return function increment() {
+    count++; // This is impure as it is modifying the closed over variable
+    return count;
+  };
+};
+
+const incrementFn = closure();
+console.log(incrementFn());
+console.log(incrementFn());
