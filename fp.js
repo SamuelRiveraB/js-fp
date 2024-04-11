@@ -15,8 +15,19 @@ a(3, 4); // This always return the same, referencial transparency is that we cou
 // Functional programming aims to minimize side effects
 
 // Idempotence always the same returns
-function notGood() {
+function notGood(num) {
   return Math.random(num);
 }
 
 notGood(5);
+
+// Imperative: what to do and how to do it
+
+for (let i = 0; i < 10; i++) {
+  console.log(i);
+}
+
+// Declarative: what to do and what should happen
+
+[1, 2, 3].forEach((item) => console.log(item));
+// JQuery is imperative, React is declarative
