@@ -80,7 +80,6 @@ const partialMultiplyBy5 = multiply2.bind(null, 5);
 console.log(partialMultiplyBy5(4, 10));
 
 // Compose and Pipe
-
 const compose = (f, g) => (data) => f(g(data));
 const pipe = (f, g) => (data) => g(f(data));
 const multiplyBy3 = (num) => num * 3;
@@ -88,3 +87,5 @@ const makePositive = (num) => Math.abs(num);
 const multiplyBy3AndAbsolute = compose(multiplyBy3, makePositive);
 
 console.log(multiplyBy3AndAbsolute(-50));
+
+// Arity is the number of arguments a function takes
