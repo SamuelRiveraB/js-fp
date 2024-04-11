@@ -48,13 +48,13 @@ function updateName(obj) {
 const updatedObj = updateName(obj);
 console.log(obj, updatedObj);
 
-// HOF
+// HOFs
 const hof = (fn) => fn(5);
 hof(function a(x) {
   return x;
 });
 
-// Closure
+// Closures
 const closure = function () {
   let count = 0;
   return function increment() {
@@ -66,3 +66,10 @@ const closure = function () {
 const incrementFn = closure();
 console.log(incrementFn());
 console.log(incrementFn());
+
+// Currying
+const multiply = (a, b) => a * b;
+const curriedMultiply = (a) => (b) => a * b;
+const curriedMultiplyBy5 = curriedMultiply(5);
+
+console.log(curriedMultiplyBy5(4));
